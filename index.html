@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Quick Start - Leaflet + Mapbox Studio </title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
+
+
+</head>
+<body>
+
+
+
+<div id="mapid" style="width: 1800px; height: 586px;"></div>
+<script>
+
+	var mymap = L.map('mapid').setView([5, -5],3.1 );
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/lkucera/cjza15qtb55gw1cnr9jywvv7m/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGt1Y2VyYSIsImEiOiJjamlidzFpbnQwMGF3M2twMnhiZWcwdmw0In0.CXnR5B2mVdfenZg-U0XC6A', {
+		maxZoom: 18,
+		attribution: 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+
+    accessToken: 'pk.eyJ1IjoibGt1Y2VyYSIsImEiOiJjamlidzFpbnQwMGF3M2twMnhiZWcwdmw0In0.CXnR5B2mVdfenZg-U0XC6A'
+	}).addTo(mymap);
+
+// Freeze Position Troubleshoot this ??
+//map.dragging.disable();
+//map.touchZoom.disable();
+//map.doubleClickZoom.disable();
+//map.scrollWheelZoom.disable();
+//map.boxZoom.disable();
+//map.keyboard.disable();
+
+
+// Hub Location Pins
+var myIcon = L.icon({
+    iconUrl: '~/content/pin.png',
+    iconSize: [38, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76],
+    shadowUrl: 'my-icon-shadow.png',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
+
+var az = L.myIcon([3.45, -76.52]).bindPopup('SERVIR-Amazonia'),
+    esa    = L.marker([39.74, -104.99]).bindPopup('SERVIR-'),
+    wa    = L.marker([39.73, -104.8]).bindPopup('SERVIR-'),
+    hkh    = L.marker([39.77, -105.23]).bindPopup('SERVIR-');
+    mk    = L.marker([39.77, -105.23]).bindPopup('SERVIR-');
+
+// Legend
+  var legend = L.control({position: 'bottomleft'});
+
+
+
+</script>
+
+
+
+</body>
+</html>
